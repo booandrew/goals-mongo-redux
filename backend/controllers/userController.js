@@ -84,8 +84,14 @@ const getMe = asyncHandler(async (req, res) => {
   res.status(200).json(req.user);
 });
 
+const deleteAllUsers = asyncHandler(async (req, res) => {
+  User.deleteMany({});
+  res.status(200).json("Deleted");
+});
+
 module.exports = {
   registerUser,
   loginUser,
   getMe,
+  deleteAllUsers,
 };
